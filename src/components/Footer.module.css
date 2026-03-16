@@ -1,0 +1,54 @@
+.footer {
+  background: var(--c-bg2);
+  padding: 0;
+}
+.inner {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.brand {}
+.logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.logoMark {
+  width: 34px; height: 34px; border-radius: 7px;
+  background: var(--gold); color: #0c1a0e;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-display); font-weight: 700; font-size: 20px;
+}
+.logoText {
+  font-family: var(--f-impact); font-size: 22px;
+  letter-spacing: 4px; color: var(--t-h);
+}
+.tagline  { font-size: 14px; color: var(--t-b); margin-bottom: 4px; }
+.company  { font-size: 13px; color: var(--t-dim); margin-bottom: 12px; }
+.copy     { font-size: 12px; color: var(--t-dim); }
+
+.col {}
+.colHead {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+}
+.fLink {
+  display: block; font-size: 14px; color: var(--t-dim);
+  padding: 5px 0; transition: color 0.2s;
+}
+.fLink:hover { color: var(--gold-lt); }
+
+.bottom {
+  border-top: 1px solid var(--c-border);
+  padding: 20px 40px;
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--t-dim);
+  flex-wrap: wrap; gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .inner { grid-template-columns: 1fr; }
+  .bottom { padding: 20px; }
+}

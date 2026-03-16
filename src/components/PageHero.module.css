@@ -1,0 +1,29 @@
+.hero {
+  min-height: 480px;
+  background: var(--c-bg2);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8,15,9,0.3) 0%,
+    rgba(8,15,9,0.7) 60%,
+    rgba(8,15,9,1) 100%
+  );
+}
+.content {
+  position: relative; z-index: 1;
+  padding-bottom: 72px;
+}
+.title { max-width: 700px; }
+.sub {
+  margin-top: 18px;
+  color: rgba(194,187,168,0.8);
+}
