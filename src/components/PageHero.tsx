@@ -13,7 +13,7 @@ export default function PageHero({ tag, title, highlight, sub, img }: Props) {
     <section className={styles.hero} style={img ? { backgroundImage: `url(${img})` } : {}}>
       <div className={styles.overlay} />
       <div className="noise-overlay" />
-      <div className={`wrap ${styles.content}`}>
+      <div className={styles.content} style={{ width: "100%", maxWidth: 1280, margin: "0 auto", paddingLeft: 48, paddingRight: 48 }}>
         <span className={`tag anim-fadeUp`}>{tag}</span>
         <h1 className={`h1 anim-fadeUp delay-1 ${styles.title}`}>
           {title}{highlight && <><br /><span className="gold italic">{highlight}</span></>}

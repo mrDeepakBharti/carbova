@@ -4,7 +4,6 @@ import styles from './Footer.module.css'
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className="divider" />
       <div className={`wrap ${styles.inner}`}>
         <div className={styles.brand}>
           <div className={styles.logo}>
@@ -31,7 +30,7 @@ export default function Footer() {
           <h4 className={styles.colHead}>Company</h4>
           {[
             { to: '/innovation', l: 'Innovation & Patents' },
-            { to: '/projects', l: 'Projects' },
+            // { to: '/projects', l: 'Projects' },
             { to: '/partnership', l: 'Partnership' },
             { to: '/contact', l: 'Contact Us' },
           ].map(x => <Link key={x.to} to={x.to} className={styles.fLink}>{x.l}</Link>)}

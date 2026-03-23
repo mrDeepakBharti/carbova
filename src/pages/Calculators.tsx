@@ -3,13 +3,19 @@ import PageHero from '../components/PageHero'
 import CarbonWidget from '../components/CarbonWidget'
 
 function FuelCalc() {
-  const [tons, setTons] = useState(500)
-  const [coal, setCoal] = useState(8000)
-  const [bio, setBio] = useState(5500)
-  const coalCost = tons * coal
-  const bioCost = tons * bio
-  const saved = coalCost - bioCost
-  const pct = coalCost ? ((saved / coalCost) * 100).toFixed(1) : '0'
+  const [tons, setTons] = useState<string>('500')
+  const [coal, setCoal] = useState<string>('8000')
+  const [bio, setBio]   = useState<string>('5500')
+
+  const t = parseFloat(tons) || 0
+  const c = parseFloat(coal) || 0
+  const b = parseFloat(bio)  || 0
+
+  const coalCost = t * c
+  const bioCost  = t * b
+  const saved    = coalCost - bioCost
+  const pct      = coalCost ? ((saved / coalCost) * 100).toFixed(1) : '0'
+
   return (
     <div className="card" style={{ padding: '40px' }}>
       <div style={{ marginBottom: 28 }}>
@@ -18,10 +24,15 @@ function FuelCalc() {
         <p style={{ fontSize: 14, color: 'var(--t-dim)', marginTop: 6 }}>Estimate monthly savings when switching from coal to CARBOVA biomass.</p>
       </div>
       <div className="grid-3" style={{ marginBottom: 24 }}>
-        {[['Monthly Consumption (tons)', tons, setTons],['Coal Price (₹/ton)', coal, setCoal],['Biomass Price (₹/ton)', bio, setBio]].map(([l, v, fn]) => (
-          <div className="field" key={l as string}>
-            <label className="label">{l as string}</label>
-            <input className="input" type="number" value={v as number} onChange={e => (fn as (n:number)=>void)(+e.target.value)} />
+        {([['Monthly Consumption (tons)', tons, setTons], ['Coal Price (₹/ton)', coal, setCoal], ['Biomass Price (₹/ton)', bio, setBio]] as [string, string, React.Dispatch<React.SetStateAction<string>>][]).map(([l, v, fn]) => (
+          <div className="field" key={l}>
+            <label className="label">{l}</label>
+            <input
+              className="input" type="number" value={v}
+              onChange={e => fn(e.target.value)}
+              onFocus={e => e.target.select()}
+              placeholder="0"
+            />
           </div>
         ))}
       </div>
@@ -48,10 +59,15 @@ function FuelCalc() {
 }
 
 function CarbonCalc() {
-  const [tons, setTons] = useState(500)
-  const [price, setPrice] = useState(1200)
-  const co2 = tons * 2.2
-  const rev = co2 * price
+  const [tons,  setTons]  = useState<string>('500')
+  const [price, setPrice] = useState<string>('1200')
+
+  const t = parseFloat(tons)  || 0
+  const p = parseFloat(price) || 0
+
+  const co2 = t * 2.2
+  const rev = co2 * p
+
   return (
     <div className="card" style={{ padding: '40px' }}>
       <div style={{ marginBottom: 28 }}>
@@ -60,10 +76,15 @@ function CarbonCalc() {
         <p style={{ fontSize: 14, color: 'var(--t-dim)', marginTop: 6 }}>Estimate CO₂ reduction and carbon credit revenue potential.</p>
       </div>
       <div className="grid-2" style={{ marginBottom: 24 }}>
-        {[['Monthly Fuel (tons)', tons, setTons, ''],['Carbon Credit Price (₹/tCO₂)', price, setPrice, '']].map(([l, v, fn]) => (
-          <div className="field" key={l as string}>
-            <label className="label">{l as string}</label>
-            <input className="input" type="number" value={v as number} onChange={e => (fn as (n:number)=>void)(+e.target.value)} />
+        {([['Monthly Fuel (tons)', tons, setTons], ['Carbon Credit Price (₹/tCO₂)', price, setPrice]] as [string, string, React.Dispatch<React.SetStateAction<string>>][]).map(([l, v, fn]) => (
+          <div className="field" key={l}>
+            <label className="label">{l}</label>
+            <input
+              className="input" type="number" value={v}
+              onChange={e => fn(e.target.value)}
+              onFocus={e => e.target.select()}
+              placeholder="0"
+            />
           </div>
         ))}
       </div>
@@ -86,12 +107,18 @@ function CarbonCalc() {
 
 function BoilerCalc() {
   const [fuel, setFuel] = useState('coal')
-  const [cap, setCap] = useState(5)
-  const [hrs, setHrs] = useState(16)
+  const [cap,  setCap]  = useState<string>('5')
+  const [hrs,  setHrs]  = useState<string>('16')
+
   const gcv: Record<string,number> = { coal: 4500, hfo: 9800, naturalgas: 8500 }
   const eff: Record<string,number> = { coal: 0.82, hfo: 0.78, naturalgas: 0.90 }
-  const curr = ((cap * 1000 * hrs) / (gcv[fuel] * eff[fuel])).toFixed(2)
-  const bio  = ((cap * 1000 * hrs) / (4000 * 0.80)).toFixed(2)
+
+  const c = parseFloat(cap) || 0
+  const h = parseFloat(hrs) || 0
+
+  const curr = ((c * 1000 * h) / (gcv[fuel] * eff[fuel])).toFixed(2)
+  const bio  = ((c * 1000 * h) / (4000 * 0.80)).toFixed(2)
+
   return (
     <div className="card" style={{ padding: '40px' }}>
       <div style={{ marginBottom: 28 }}>
@@ -110,11 +137,15 @@ function BoilerCalc() {
         </div>
         <div className="field">
           <label className="label">Boiler Capacity (MW)</label>
-          <input className="input" type="number" value={cap} onChange={e => setCap(+e.target.value)} />
+          <input className="input" type="number" value={cap}
+            onChange={e => setCap(e.target.value)}
+            onFocus={e => e.target.select()} placeholder="0" />
         </div>
         <div className="field">
           <label className="label">Operating Hours/Day</label>
-          <input className="input" type="number" value={hrs} onChange={e => setHrs(+e.target.value)} />
+          <input className="input" type="number" value={hrs}
+            onChange={e => setHrs(e.target.value)}
+            onFocus={e => e.target.select()} placeholder="0" />
         </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, background: 'rgba(96,165,250,0.05)', borderRadius: 10, padding: 24, border: '1px solid rgba(96,165,250,0.2)' }}>

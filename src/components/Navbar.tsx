@@ -9,7 +9,7 @@ const links = [
   { to: '/calculators',   label: 'Calculators' },
   { to: '/sustainability', label: 'Sustainability' },
   { to: '/innovation',    label: 'Innovation' },
-  { to: '/projects',      label: 'Projects' },
+  // { to: '/projects',      label: 'Projects' },
   { to: '/partnership',   label: 'Partnership' },
 ]
 
