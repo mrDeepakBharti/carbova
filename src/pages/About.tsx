@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import PageHero from '../components/PageHero'
+import umvLogo from '../assets/umv-logo-transparent.png'
+import heroImg from '../assets/hero.jpeg'
 
 export default function About() {
   const nav = useNavigate()
@@ -10,7 +12,7 @@ export default function About() {
         title="About"
         highlight="CARBOVA"
         sub="We transform agricultural waste into premium industrial fuel — powering India's clean energy transition."
-        img="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1800&q=80"
+        img={heroImg}
       />
 
       {/* Mission */}
@@ -25,17 +27,20 @@ export default function About() {
                 CARBOVA is a renewable energy brand under <strong style={{ color: 'var(--t-h)' }}>Universal Multi Ventures Private Limited</strong>, dedicated to producing high-quality biomass briquettes and pellets from agricultural residues.
               </p>
               <p style={{ fontSize: 16, color: 'var(--t-b)', lineHeight: 1.85, marginBottom: 32 }}>
-                We believe in a circular economy where agricultural waste becomes valuable energy, reducing dependency on fossil fuels while creating real economic value for farming communities.
+                By integrating innovation, sustainability, and industrial efficiency, CARBOVA contributes to the global transition toward cleaner energy systems.
               </p>
               <button className="btn btn-primary" onClick={() => nav('/contact')}>Get in Touch →</button>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              {[['2019','Founded'],['50K+','Tons Supplied'],['12+','Patents Filed'],['200+','Partners']].map(([n,l]) => (
-                <div key={l} className="card" style={{ padding: '28px 24px', textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--f-display)', fontSize: 42, fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>{n}</div>
-                  <div style={{ fontSize: 13, color: 'var(--t-dim)', marginTop: 8, fontWeight: 500, letterSpacing: 0.5 }}>{l}</div>
-                </div>
-              ))}
+            {/* UMV Logo + Founded */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28 }}>
+              <div className="card" style={{ padding: '40px', textAlign: 'center', width: '100%' }}>
+                <img src={umvLogo} alt="Universal Multi Ventures" style={{ maxWidth: 260, width: '100%', margin: '0 auto 20px', display: 'block' }} />
+                <div style={{ fontFamily: 'var(--f-display)', fontSize: 14, color: 'var(--t-dim)', letterSpacing: 1 }}>Universal Multi Ventures Private Limited</div>
+              </div>
+              <div className="card" style={{ padding: '28px 24px', textAlign: 'center', width: '100%' }}>
+                <div style={{ fontFamily: 'var(--f-display)', fontSize: 52, fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>2026</div>
+                <div style={{ fontSize: 13, color: 'var(--t-dim)', marginTop: 8, fontWeight: 500, letterSpacing: 0.5 }}>Founded</div>
+              </div>
             </div>
           </div>
         </div>
@@ -51,7 +56,7 @@ export default function About() {
           <div className="grid-3">
             {[
               { icon: '🌱', t: 'Sustainability', d: 'Every product we make reduces agricultural waste and displaces fossil fuels — measurably.' },
-              { icon: '🔬', t: 'Innovation', d: 'Backed by 12+ patents in waste-to-value and clean energy production technologies.' },
+              { icon: '🔬', t: 'Innovation', d: 'Backed by cutting-edge research in waste-to-value and clean energy production technologies.' },
               { icon: '🤝', t: 'Partnership', d: 'We co-create value with farmers, industries, carbon developers and investors.' },
             ].map(v => (
               <div key={v.t} className="card" style={{ padding: '36px 28px', textAlign: 'center' }}>
@@ -64,7 +69,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team CTA */}
+      {/* CTA */}
       <section className="section" style={{ background: 'var(--c-bg2)' }}>
         <div className="wrap" style={{ textAlign: 'center' }}>
           <span className="tag">Join Our Mission</span>

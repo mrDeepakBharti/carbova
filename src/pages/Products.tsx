@@ -1,19 +1,21 @@
 import { useNavigate } from 'react-router-dom'
 import PageHero from '../components/PageHero'
+import briquettesImg from '../assets/briquettes-square.jpeg'
+import pelletsImg    from '../assets/pellets-green.jpeg'
 
 const bSpecs = [
   ['Gross Calorific Value','3800–4200 kcal/kg'],
   ['Moisture Content','8–12 %'],
-  ['Ash Content','5–8 %'],
+  ['Ash Content','1–6 %'],
   ['Fixed Carbon','15–18 %'],
   ['Diameter','60–90 mm'],
   ['Length','50–150 mm'],
   ['Density','1.0–1.2 g/cm³'],
 ]
 const pSpecs = [
-  ['Gross Calorific Value','4000–4500 kcal/kg'],
+  ['Gross Calorific Value','4000–5000 kcal/kg'],
   ['Moisture Content','6–10 %'],
-  ['Ash Content','3–6 %'],
+  ['Ash Content','1–6 %'],
   ['Fixed Carbon','16–20 %'],
   ['Diameter','6–10 mm'],
   ['Length','10–30 mm'],
@@ -26,6 +28,7 @@ const applications = [
   { icon: '🍲', t: 'Food Processing',        d: 'Heating, drying, and steam generation' },
   { icon: '📄', t: 'Paper & Pulp',          d: 'Thermal boilers for paper production' },
   { icon: '⚗️', t: 'Chemical Industries',  d: 'Industrial heating systems' },
+  { icon: '⚡', t: 'Power Plants',          d: 'Co-firing with coal in thermal power plants' },
 ]
 
 function SpecTable({ rows }: { rows: string[][] }) {
@@ -55,7 +58,7 @@ export default function Products() {
         title="Premium Biomass"
         highlight="Fuel Products"
         sub="High-quality briquettes and pellets from agricultural residues — clean, efficient substitutes for coal."
-        img="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1800&q=80"
+        img="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1800&q=80"
       />
 
       {/* Briquettes */}
@@ -70,14 +73,14 @@ export default function Products() {
                 High-density solid fuel blocks produced by compressing agricultural biomass residues. Widely used in industrial boilers, furnaces, and thermal power plants as a renewable coal replacement.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 32 }}>
-                {['Industrial Boilers','Brick Kilns','Textile Mills','Food Processing','Paper Industries'].map(a => (
+                {['Industrial Boilers','Brick Kilns','Textile Mills','Food Processing','Paper Industries','Power Plants'].map(a => (
                   <span key={a} style={{ background: 'var(--gold-dim)', border: '1px solid var(--c-border)', borderRadius: 100, padding: '5px 14px', fontSize: 12, color: 'var(--gold-lt)' }}>{a}</span>
                 ))}
               </div>
               <button className="btn btn-primary" onClick={() => nav('/contact')}>Request Supply →</button>
             </div>
             <div>
-              <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=700&q=80" alt="Biomass Briquettes" style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: 12, marginBottom: 28, border: '1px solid var(--c-border)' }} />
+              <img src={briquettesImg} alt="Biomass Briquettes" style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: 12, marginBottom: 28, border: '1px solid var(--c-border)' }} />
               <span className="tag">Technical Specifications</span>
               <SpecTable rows={bSpecs} />
             </div>
@@ -99,14 +102,14 @@ export default function Products() {
                 Cylindrical compressed biomass fuel with superior calorific value. Ideal for automated feeding systems, power plants, and industrial applications requiring consistent fuel quality.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 32 }}>
-                {['Power Plants','Pellet Boilers','Automated Systems','Thermal Plants'].map(a => (
+                {['Power Plants','Pellet Boilers','Automated Systems','Thermal Plants','Co-firing Units'].map(a => (
                   <span key={a} style={{ background: 'var(--gold-dim)', border: '1px solid var(--c-border)', borderRadius: 100, padding: '5px 14px', fontSize: 12, color: 'var(--gold-lt)' }}>{a}</span>
                 ))}
               </div>
               <button className="btn btn-primary" onClick={() => nav('/contact')}>Request Supply →</button>
             </div>
             <div style={{ order: 1 }}>
-              <img src="https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?w=700&q=80" alt="Biomass Pellets" style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: 12, marginBottom: 28, border: '1px solid var(--c-border)' }} />
+              <img src={pelletsImg} alt="Biomass Pellets" style={{ width: '100%', height: 260, objectFit: 'cover', borderRadius: 12, marginBottom: 28, border: '1px solid var(--c-border)' }} />
               <span className="tag">Technical Specifications</span>
               <SpecTable rows={pSpecs} />
             </div>
@@ -121,7 +124,7 @@ export default function Products() {
             <span className="tag">Applications</span>
             <h2 className="h2">Industrial Sectors <span className="gold italic">We Serve</span></h2>
           </div>
-          <div className="grid-3">
+          <div className="grid-3" style={{ gap: 20 }}>
             {applications.map(a => (
               <div key={a.t} className="card" style={{ padding: '28px', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
                 <span style={{ fontSize: 32, flexShrink: 0 }}>{a.icon}</span>

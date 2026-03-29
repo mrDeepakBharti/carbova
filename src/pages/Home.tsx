@@ -29,6 +29,7 @@
 //   { icon: '🧱', title: 'Brick Kilns',          img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=500&q=70' },
 //   { icon: '⚗️', title: 'Chemical Industries', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=500&q=70' },
 //   { icon: '📦', title: 'Packaging Units',      img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=70' },
+//   { icon: '⚡', title: 'Power Plants',        img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=500&q=70' },
 // ]
 
 // export default function Home() {
@@ -244,10 +245,16 @@
 import { useNavigate } from 'react-router-dom'
 import CarbonWidget from '../components/CarbonWidget'
 import styles from './Home.module.css'
+import heroImg          from '../assets/hero.jpeg'
+import about1Img        from '../assets/about1.jpeg'
+import pelletsScoop     from '../assets/pellets-scoop.jpeg'
+import pelletsGreen     from '../assets/pellets-green.jpeg'
+import briquettesHand   from '../assets/briquettes-hand.jpeg'
+import briquettesSquare from '../assets/briquettes-square.jpeg'
 
-const HERO_IMG    = 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1800&q=80'
-const ABOUT_IMG   = 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80'
-const FACTORY_IMG = 'https://images.unsplash.com/photo-1565117168-2b1de48b8d06?w=900&q=80'
+const HERO_IMG    = heroImg
+const ABOUT_IMG   = about1Img
+const FACTORY_IMG = pelletsScoop
 
 const stats = [
   { val: '50,000+', lbl: 'Tons Supplied' },
@@ -265,11 +272,12 @@ const benefits = [
 
 const sectors = [
   { icon: '👕', title: 'Textile Mills',        img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=70' },
-  { icon: '📄', title: 'Paper & Pulp',         img: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=500&q=70' },
-  { icon: '🍲', title: 'Food Processing',      img: 'https://images.unsplash.com/photo-1565117168-2b1de48b8d06?w=500&q=70' },
-  { icon: '🧱', title: 'Brick Kilns',          img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=500&q=70' },
+  { icon: '📄', title: 'Paper & Pulp',         img: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500&q=70' },
+  { icon: '🍲', title: 'Food Processing',      img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=70' },
+  { icon: '🧱', title: 'Brick Kilns',          img: briquettesHand },
   { icon: '⚗️', title: 'Chemical Industries', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=500&q=70' },
-  { icon: '📦', title: 'Packaging Units',      img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=70' },
+  { icon: '📦', title: 'Packaging Units',      img: briquettesSquare },
+  { icon: '⚡', title: 'Power Plants',        img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=500&q=70' },
 ]
 
 export default function Home() {
@@ -351,14 +359,14 @@ export default function Home() {
           <div className={styles.productsGrid}>
             {[
               {
-                img: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&q=80',
+                img: briquettesSquare,
                 title: 'Biomass Briquettes',
                 desc: 'High-density solid fuel used to fill the molds and furnaces.',
                 specs: ['High calorific value', 'Low emissions', 'Sustainable alternative to coal'],
                 badge: '3800–4200 kcal/kg',
               },
               {
-                img: 'https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?w=600&q=80',
+                img: pelletsGreen,
                 title: 'Biomass Pellets',
                 desc: 'Cylindrical compressed pellets for efficient industrial heating systems.',
                 specs: ['Consistent combustion', 'Reduced ash', 'Renewable fuel'],

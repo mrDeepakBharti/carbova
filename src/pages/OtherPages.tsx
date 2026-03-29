@@ -252,8 +252,8 @@
 //               <div className="gold-line" />
 //               <div style={{ display: 'flex', flexDirection: 'column', gap: 28, marginTop: 8 }}>
 //                 {[
-//                   { icon: '✉️', l: 'Email', v: 'info@carbova.in', s: 'We reply within 24 hours' },
-//                   { icon: '📞', l: 'Phone', v: '+91 XXXXX XXXXX', s: 'Mon–Sat, 9am–6pm IST' },
+//                   { icon: '✉️', l: 'Email', v: 'umventures@zohomail.in', s: 'We reply within 24 hours' },
+//                   { icon: '📞', l: 'Phone', v: '+91-6396007431', s: 'Mon–Sat, 9am–6pm IST' },
 //                   { icon: '🏢', l: 'Company', v: 'Universal Multi Ventures Pvt. Ltd.', s: 'India' },
 //                 ].map(c => (
 //                   <div key={c.l} style={{ display: 'flex', gap: 16 }}>
@@ -278,7 +278,7 @@
 //                 ))}
 //               </div>
 //               <div className="grid-2">
-//                 {[['Email Address','your@email.com'],['Phone Number','+91 XXXXX XXXXX']].map(([l,p]) => (
+//                 {[['Email Address','your@email.com'],['Phone Number','+91-6396007431']].map(([l,p]) => (
 //                   <div className="field" key={l}>
 //                     <label className="label">{l}</label>
 //                     <input className="input" placeholder={p} />
@@ -313,6 +313,12 @@
 
 import { useNavigate } from 'react-router-dom'
 import PageHero from '../components/PageHero'
+import heroImg          from '../assets/hero.jpeg'
+import about1Img        from '../assets/about1.jpeg'
+import pelletsScoop     from '../assets/pellets-scoop.jpeg'
+import pelletsGreen     from '../assets/pellets-green.jpeg'
+import briquettesHand   from '../assets/briquettes-hand.jpeg'
+import briquettesSquare from '../assets/briquettes-square.jpeg'
 
 /* ─── SUSTAINABILITY ─── */
 export function Sustainability() {
@@ -328,7 +334,7 @@ export function Sustainability() {
     <div>
       <PageHero tag="Our Commitment" title="Sustainability at" highlight="CARBOVA"
         sub="We measure success in tonnes of CO₂ avoided, waste diverted, and communities empowered."
-        img="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1800&q=80" />
+        img={pelletsGreen} />
       <section className="section" style={{ background: 'var(--c-bg2)' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
@@ -398,7 +404,7 @@ export function Innovation() {
       {/* Top image strip */}
       <div style={{
         height: 280, marginTop: 80,
-        backgroundImage: 'url(https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1800&q=80)',
+        backgroundImage: `url(${briquettesHand})`,
         backgroundSize: 'cover', backgroundPosition: 'center',
         position: 'relative',
       }}>
@@ -453,20 +459,7 @@ export function Innovation() {
             <div style={{ height: 1, width: 60, background: 'var(--c-border)' }} />
           </div>
 
-          {/* Patent teaser cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, marginBottom: 48 }}>
-            {[
-              { icon: '⚙️', label: '12+', sub: 'Patents Filed' },
-              { icon: '🧪', label: '5',   sub: 'R&D Labs' },
-              { icon: '👥', label: '30+', sub: 'Researchers' },
-            ].map(c => (
-              <div key={c.label} className="card" style={{ padding: '24px 16px', textAlign: 'center' }}>
-                <span style={{ fontSize: 28, display: 'block', marginBottom: 8 }}>{c.icon}</span>
-                <div style={{ fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>{c.label}</div>
-                <div style={{ fontSize: 12, color: 'var(--t-dim)', marginTop: 6 }}>{c.sub}</div>
-              </div>
-            ))}
-          </div>
+
 
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <button className="btn btn-primary" onClick={() => nav('/contact')}>Notify Me →</button>
@@ -499,7 +492,7 @@ export function Projects() {
     <div>
       <PageHero tag="Our Projects" title="Active & Upcoming" highlight="Projects"
         sub="CARBOVA's growing network of biomass production facilities powering industries across India."
-        img="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1800&q=80" />
+        img={about1Img} />
       <section className="section" style={{ background: 'var(--c-bg2)' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginBottom: 52 }}>
@@ -545,7 +538,7 @@ export function Partnership() {
     <div>
       <PageHero tag="Collaborate With Us" title="Partner With" highlight="CARBOVA"
         sub="We collaborate with industries, investors, and networks who share our vision for a clean energy future."
-        img="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=80" />
+        img={pelletsScoop} />
       <section className="section" style={{ background: 'var(--c-bg2)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
@@ -596,7 +589,7 @@ export function Contact() {
     <div>
       <PageHero tag="Get In Touch" title="Contact" highlight="CARBOVA"
         sub="Reach out for supply inquiries, partnerships, or any questions. We respond within 24 hours."
-        img="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1800&q=80" />
+        img={briquettesSquare} />
       <section className="section" style={{ background: 'var(--c-bg2)' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 72, alignItems: 'start' }}>
@@ -606,8 +599,8 @@ export function Contact() {
               <div className="gold-line" />
               <div style={{ display: 'flex', flexDirection: 'column', gap: 28, marginTop: 8 }}>
                 {[
-                  { icon: '✉️', l: 'Email', v: 'info@carbova.in', s: 'We reply within 24 hours' },
-                  { icon: '📞', l: 'Phone', v: '+91 XXXXX XXXXX', s: 'Mon–Sat, 9am–6pm IST' },
+                  { icon: '✉️', l: 'Email', v: 'umventures@zohomail.in', s: 'We reply within 24 hours' },
+                  { icon: '📞', l: 'Phone', v: '+91-6396007431', s: 'Mon–Sat, 9am–6pm IST' },
                   { icon: '🏢', l: 'Company', v: 'Universal Multi Ventures Pvt. Ltd.', s: 'India' },
                 ].map(c => (
                   <div key={c.l} style={{ display: 'flex', gap: 16 }}>
@@ -632,7 +625,7 @@ export function Contact() {
                 ))}
               </div>
               <div className="grid-2">
-                {[['Email Address','your@email.com'],['Phone Number','+91 XXXXX XXXXX']].map(([l,p]) => (
+                {[['Email Address','your@email.com'],['Phone Number','+91-6396007431']].map(([l,p]) => (
                   <div className="field" key={l}>
                     <label className="label">{l}</label>
                     <input className="input" placeholder={p} />

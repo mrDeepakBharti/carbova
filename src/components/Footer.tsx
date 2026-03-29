@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
+import carbovaLogo from '../assets/carbova-logo-transparent.png'
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className={`wrap ${styles.inner}`}>
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <span className={styles.logoMark}>C</span>
+            <img src={carbovaLogo} alt="CARBOVA" style={{ height: 52, width: 'auto', objectFit: 'contain', marginBottom: 4 }} />
             <span className={styles.logoText}>CARBOVA</span>
           </div>
           <p className={styles.tagline}>Renewable Energy Solutions</p>
@@ -38,8 +39,8 @@ export default function Footer() {
 
         <div className={styles.col}>
           <h4 className={styles.colHead}>Contact</h4>
-          <a href="mailto:info@carbova.in" className={styles.fLink}>✉ info@carbova.in</a>
-          <a href="tel:+910000000000" className={styles.fLink}>☏ +91 XXXXX XXXXX</a>
+          <a href="mailto:umventures@zohomail.in" className={styles.fLink}>✉ umventures@zohomail.in</a>
+          <a href="tel:+916396007431" className={styles.fLink}>☏ +91-6396007431</a>
           <span className={styles.fLink}>⌂ India</span>
         </div>
       </div>
